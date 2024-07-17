@@ -27,6 +27,7 @@ interface Props {
   columns?: number;
   language?: 'es' | 'en';
   dark?: boolean;
+  zIndex?: number;
 }
 
 const { width, height } = Dimensions.get('screen');
@@ -74,6 +75,7 @@ export default function EmojiModal({
   onSelect,
   language = 'es',
   dark = false,
+  zIndex = 99999,
 }: Props) {
   const colSize = Math.floor((width - 80) / columns);
   const [selectedCategory, setSelectedCategory] = useState<Key | Key_EN>(
@@ -135,10 +137,18 @@ export default function EmojiModal({
     categoryContainer: {
       marginTop: 20,
     },
+    modal: {
+      zIndex,
+    },
   });
 
   return (
-    <Modal visible={visible} onRequestClose={() => setVisible(false)}>
+    <Modal
+      transparent
+      visible={visible}
+      onRequestClose={() => setVisible(false)}
+      style={styles.modal}
+    >
       <TouchableWithoutFeedback onPress={() => setVisible(false)}>
         <View style={styles.backDrop} />
       </TouchableWithoutFeedback>
