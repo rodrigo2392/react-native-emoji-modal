@@ -1,4 +1,4 @@
-# react-native-emoji-modal
+# @rodrigo2392/react-native-emoji-modal
 
 Biblioteca de react native para desplegar un modal y seleccionar un emoji, con búsqueda en inglés o español.
 Basado en el repositorio https://github.com/Majiedo/react-native-emojis-picker
@@ -10,14 +10,14 @@ Basado en el repositorio https://github.com/Majiedo/react-native-emojis-picker
 ## Instalación
 
 ```sh
-npm install react-native-emoji-modal
+npm install @rodrigo2392/react-native-emoji-modal
 ```
 
 ## Uso
 
 
 ```js
-import EmojiModal from 'react-native-emoji-modal';
+import EmojiModal from '@rodrigo2392/react-native-emoji-modal';
 
 // ...
 

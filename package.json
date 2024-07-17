@@ -1,5 +1,5 @@
 {
-  "name": "react-native-emoji-modal",
+  "name": "@rodrigo2392/react-native-emoji-modal",
   "version": "0.1.0",
   "description": "Biblioteca de react native para la selección de emojis",
   "source": "./src/index.tsx",
