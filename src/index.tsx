@@ -28,6 +28,7 @@ interface Props {
   language?: 'es' | 'en';
   dark?: boolean;
   zIndex?: number;
+  opacity: number;
 }
 
 const { width, height } = Dimensions.get('screen');
@@ -76,6 +77,7 @@ export default function EmojiModal({
   language = 'es',
   dark = false,
   zIndex = 99999,
+  opacity = 0.5,
 }: Props) {
   const colSize = Math.floor((width - 80) / columns);
   const [selectedCategory, setSelectedCategory] = useState<Key | Key_EN>(
@@ -103,7 +105,7 @@ export default function EmojiModal({
       width,
       height,
       position: 'absolute',
-      backgroundColor: 'rgba(0,0,0,0.5)',
+      backgroundColor: `rgba(0,0,0,${opacity})`,
     },
     container: {
       position: 'absolute',

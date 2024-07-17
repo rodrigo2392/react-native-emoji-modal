@@ -43,7 +43,13 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "emoji",
+    "spanish",
+    "español",
+    "modal",
+    "picker",
+    "selector"
   ],
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-# @rodrigo2392/react-native-emoji-modal
+## Resumen
 
 Biblioteca de react native para desplegar un modal y seleccionar un emoji, con búsqueda en inglés o español.
 Basado en el repositorio https://github.com/Majiedo/react-native-emojis-picker
@@ -35,14 +35,16 @@ import EmojiModal from '@rodrigo2392/react-native-emoji-modal';
 
 | Prop              | Tipo     | Defecto            | Descripción                                                |
 | ----------------- | -------- | -----------------  | --------------------------------------------------------   |
-| columns           | _number_ | 10              | Cantidad de emojis a mostrar por fila                         |
-| onSelect          | _func_   |                    | Función llamada al seleccioanr el emoji.                   |
+| columns           | _number_ | 10                 | Cantidad de emojis a mostrar por fila                      |
+| onSelect          | _func_   |                    | Función llamada al seleccionar el emoji.                   |
 | setVisible        | _func_   |                    | Función para cerrar el modal, debe pasar un bool como arg  |
 | visible           | _bool_   | false              | Estado del modal                                           |
 | language          | _estring_| "es"               | Lenguage para buscar emojis, es(español) o en(inglés)      |
 | noResultText      | _estring_| "Ningún resultado" | Texto para indicar que no hay resultados de búsqueda       |
 | searchPlaceholder | _estring_| "Buscar emoji"     | Texto de placeholder para el campo de búsqueda             |
 | dark              | _bool_   | false              | Aplica un modo oscuro a los elementos                      |
+| opacity           | _number_ | 0.5                | Opacidad del fondo 0 - 1                                   |
+| zIndex            | _number_ | 99999              | zIndex para el modal completo                              |
 
 ## Licencia
 
