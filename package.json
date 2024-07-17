@@ -184,6 +184,7 @@
     "version": "0.38.2"
   },
   "dependencies": {
+    "@gorhom/portal": "^1.0.14",
     "@shopify/flash-list": "^1.7.0"
   }
 }

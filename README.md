@@ -14,22 +14,30 @@ npm install @rodrigo2392/react-native-emoji-modal
 ```
 
 ## Uso
-
+Se utiliza la biblioteca https://github.com/gorhom/react-native-portal 
+así que deberás agregar el proveedor en el tope de tu aplicación, si ya estás usando esta biblioteca no será necesario
 
 ```js
-import EmojiModal from '@rodrigo2392/react-native-emoji-modal';
-
+import {
+  EmojiModal,
+  EmojiProvider,
+} from '@rodrigo2392/react-native-emoji-modal';
 // ...
 
- <EmojiModal
-    columns={12}
-    onSelect={(val: string) => {
-        setEmoji(val);
-        setVisible(false);
-    }}
-    setVisible={setVisible}
-    visible={visible}
-/>
+    <EmojiProvider>
+        <App>
+    </EmojiProvider>
+
+// ....
+    <EmojiModal
+        columns={12}
+        onSelect={(val: string) => {
+            setEmoji(val);
+            setVisible(false);
+        }}
+        setVisible={setVisible}
+        visible={visible}
+    />
 ```
 ## Props
 

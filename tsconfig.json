@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-emoji-modal": ["./src/index"]
+      "@rodrigo2392/react-native-emoji-modal": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
