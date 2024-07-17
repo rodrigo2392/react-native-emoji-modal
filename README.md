@@ -7,13 +7,13 @@ Basado en el repositorio https://github.com/Majiedo/react-native-emojis-picker
 | :---------------------------: | :--------------------------: |
 | ![](./assets/light.png) | ![](./assets/dark.png) |
 
-## Installation
+## Instalación
 
 ```sh
 npm install react-native-emoji-modal
 ```
 
-## Usage
+## Uso
 
 
 ```js
@@ -44,6 +44,6 @@ import EmojiModal from 'react-native-emoji-modal';
 | searchPlaceholder | _estring_| "Buscar emoji"     | Texto de placeholder para el campo de búsqueda             |
 | dark              | _bool_   | false              | Aplica un modo oscuro a los elementos                      |
 
-## License
+## Licencia
 
 MIT
