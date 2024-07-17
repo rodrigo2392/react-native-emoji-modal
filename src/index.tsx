@@ -28,7 +28,7 @@ interface Props {
   language?: 'es' | 'en';
   dark?: boolean;
   zIndex?: number;
-  opacity: number;
+  opacity?: number;
 }
 
 const { width, height } = Dimensions.get('screen');
