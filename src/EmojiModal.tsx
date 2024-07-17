@@ -92,7 +92,7 @@ export default function EmojiModal({
     },
     backDrop: {
       width,
-      height,
+      height: height * 0.5,
       position: 'absolute',
       backgroundColor: `rgba(0,0,0,${opacity})`,
     },
@@ -107,6 +107,7 @@ export default function EmojiModal({
       borderTopEndRadius: 15,
       borderTopStartRadius: 15,
       justifyContent: 'center',
+      zIndex,
     },
     searchContainer: {
       marginTop: 20,
