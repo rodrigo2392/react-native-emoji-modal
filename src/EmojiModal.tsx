@@ -4,9 +4,6 @@ import {
   Dimensions,
   Text,
   TouchableWithoutFeedback,
-  KeyboardAvoidingView,
-  SafeAreaView,
-  Platform,
   Animated,
 } from 'react-native';
 import SearchInput from './components/SearchInput';
@@ -115,7 +112,7 @@ export default function EmojiModal({
     emojiContainer: {
       marginTop: 10,
       flex: 1,
-      paddingBottom: 40,
+      paddingBottom: 20,
     },
     noResultWrapper: {
       marginVertical: 10,
@@ -141,63 +138,55 @@ export default function EmojiModal({
         <TouchableWithoutFeedback onPress={() => setVisible(false)}>
           <Animated.View style={styles.backDrop} />
         </TouchableWithoutFeedback>
-        <SafeAreaView style={styles.safeArea}>
-          <KeyboardAvoidingView
-            keyboardVerticalOffset={Platform.OS === 'ios' ? 10 : 0}
-            style={styles.container}
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          >
-            <View style={styles.container}>
-              <View style={styles.searchContainer}>
-                <SearchInput
-                  dark={dark}
-                  onChange={setSearch}
-                  placeholder={searchPlaceholder}
+        <View style={styles.container}>
+          <View style={styles.searchContainer}>
+            <SearchInput
+              dark={dark}
+              onChange={setSearch}
+              placeholder={searchPlaceholder}
+            />
+          </View>
+          <View style={styles.categoryContainer}>
+            <RenderCategory
+              categories={catsByLanguage[language]}
+              onPress={setSelectedCategory}
+              selectedCategory={selectedCategory}
+            />
+          </View>
+          <View style={styles.emojiContainer}>
+            <FlashList
+              showsVerticalScrollIndicator={false}
+              data={listByLanguage[language].filter((item) => {
+                if (search === '') {
+                  return item.category === selectedCategory;
+                } else {
+                  return item.name.includes(search.toLocaleUpperCase());
+                }
+              })}
+              keyExtractor={(_, index) => index.toString()}
+              ListEmptyComponent={
+                <View style={styles.noResultWrapper}>
+                  <Text style={styles.noResultText}>
+                    {noResultText ?? 'Ningún resultado'}
+                  </Text>
+                </View>
+              }
+              renderItem={({ item }) => (
+                <EmojiCell
+                  colSize={colSize ?? 10}
+                  emoji={item}
+                  onPress={(emoji: Emoji) => {
+                    setSearch('');
+                    onSelect(charFromEmojiObject(emoji));
+                    setSelectedCategory(catsByLanguage[language][0]!);
+                  }}
                 />
-              </View>
-              <View style={styles.categoryContainer}>
-                <RenderCategory
-                  categories={catsByLanguage[language]}
-                  onPress={setSelectedCategory}
-                  selectedCategory={selectedCategory}
-                />
-              </View>
-              <View style={styles.emojiContainer}>
-                <FlashList
-                  showsVerticalScrollIndicator={false}
-                  data={listByLanguage[language].filter((item) => {
-                    if (search === '') {
-                      return item.category === selectedCategory;
-                    } else {
-                      return item.name.includes(search.toLocaleUpperCase());
-                    }
-                  })}
-                  keyExtractor={(_, index) => index.toString()}
-                  ListEmptyComponent={
-                    <View style={styles.noResultWrapper}>
-                      <Text style={styles.noResultText}>
-                        {noResultText ?? 'Ningún resultado'}
-                      </Text>
-                    </View>
-                  }
-                  renderItem={({ item }) => (
-                    <EmojiCell
-                      colSize={colSize ?? 10}
-                      emoji={item}
-                      onPress={(emoji: Emoji) => {
-                        setSearch('');
-                        onSelect(charFromEmojiObject(emoji));
-                        setSelectedCategory(catsByLanguage[language][0]!);
-                      }}
-                    />
-                  )}
-                  estimatedItemSize={200}
-                  numColumns={10}
-                />
-              </View>
-            </View>
-          </KeyboardAvoidingView>
-        </SafeAreaView>
+              )}
+              estimatedItemSize={200}
+              numColumns={10}
+            />
+          </View>
+        </View>
       </Portal>
     )
   );

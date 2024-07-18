@@ -17,6 +17,7 @@ export default function SearchInput({
       padding: 10,
       borderRadius: 10,
       borderBlockColor: '#292929',
+      fontSize: 16,
     },
   });
 
