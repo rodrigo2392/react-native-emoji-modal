@@ -182,8 +182,8 @@ export default function EmojiModal({
                   }}
                 />
               )}
-              estimatedItemSize={200}
-              numColumns={10}
+              estimatedItemSize={listByLanguage[language].length}
+              numColumns={columns}
             />
           </View>
         </View>
